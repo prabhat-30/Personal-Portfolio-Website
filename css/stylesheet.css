@@ -894,8 +894,8 @@ body {
     .home {
         flex-direction: column;
         text-align: center;
-        gap: 3rem;
-        padding-top: 0px;  /* More space from the top header */
+        gap: 2.7rem;
+        padding-top: 100px;  /* More space from the top header */
         padding-bottom: 50px; /* Add space at the bottom */
     }
 
