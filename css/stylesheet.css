@@ -895,7 +895,7 @@ body {
         flex-direction: column;
         text-align: center;
         gap: 3rem;
-        padding-top: 80px;  /* More space from the top header */
+        padding-top: 0px;  /* More space from the top header */
         padding-bottom: 50px; /* Add space at the bottom */
     }
 
