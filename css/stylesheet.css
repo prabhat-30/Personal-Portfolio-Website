@@ -1,0 +1,952 @@
+/* Using variables for easy color management */
+:root {
+    --bg-gradient-start: #0f172a;
+    --bg-gradient-end: #1e293b;
+    --primary-color: #38bdf8; /* Light Blue */
+    --secondary-color: #0ef;  /* Cyan */
+    --text-color: #ededed;
+    --dark-color: #081b29;
+    --gradient-1: #8f2ceb; /* Purple */
+    --gradient-2: #dc3d58; /* Reddish */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--dark-color);
+    color: var(--text-color);
+}
+
+/* Header Styling */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background-color: #040e22;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--text-color);
+    text-decoration: none;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+}
+
+.navbar a {
+    display: inline-block;
+    font-size: 20px;
+    text-decoration: none;
+    color: var(--text-color);
+    margin-left: 35px;
+    margin-right: auto;
+    font-weight: 500;
+    transition: 0.3s;
+    opacity: 0;
+    animation: slideTop .5s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--primary-color);
+}
+
+/* Home Section Styling */
+.home {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    padding: 70px 10% 0;
+    background-position: center;
+    background-size: cover;
+}
+
+.home-content {
+    max-width: 600px;
+}
+
+.home-content h3 {
+    font-size: 30px;
+    font-weight: 700;
+    opacity: 0;
+    animation: slideBottom 1s ease forwards;
+    animation-delay: .7s;
+}
+
+.home-content h3:nth-of-type(2) {
+    margin-bottom: 20px;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 0.7s;
+}
+
+.home-content h3 span {
+    font-size: 32px;
+    color: var(--secondary-color);
+}
+.text {
+    font-size: 2.2rem; /* Adjust this value to make the text bigger or smaller */
+}
+
+.home-content h1 {
+    font-size: 56px;  
+    font-weight: 700;
+    margin: -3px 0 8px 0;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: 1s;
+}
+
+.home-content p {
+    font-size: 20px;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: 1s;
+}
+/* ===== Hero Image with Floating + 3D Effect ===== */
+.home-image {
+    position: relative;
+    border-radius: 50%;
+    padding: 10px;
+    background: linear-gradient(135deg, var(--primary-color), var(--gradient-1), var(--gradient-2));
+    animation: glow 3s infinite alternate, float 3.78s ease-in-out infinite;
+    perspective: 1000px;
+}
+
+.home-image img {
+    border-radius: 50%;
+    width: 450px;
+    height: 450px;
+    object-fit: cover;
+    border: 4px solid var(--bg-gradient-start);
+     box-shadow: 0 20px 40px rgba(0,0,0,0.5),
+                0 0 30px var(--primary-color),
+                0 0 60px var(--gradient-1),
+                0 0 100px var(--gradient-2);
+
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.home-image:hover img {
+    transform: rotateY(-10deg) rotateX(-5deg) scale(1.05);
+    
+    box-shadow: 0 30px 60px rgba(0,0,0,0.7),
+                0 0 40px var(--primary-color),
+                0 0 80px var(--gradient-1),
+                0 0 120px var(--gradient-2);
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 20px #38bdf8, 0 0 40px #922cf1, 0 0 60px #e0405b; }
+    to { box-shadow: 0 0 40px #38bdf8, 0 0 80px #8f2ceb, 0 0 100px #dc415b; }
+}
+
+@keyframes float {
+    0%   { transform: translateY(0px); }
+    50%  { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+/* ===== Social Icons and Button ===== */
+.home-sci a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border-radius: 50%;
+    border: 2px solid var(--secondary-color);
+    font-size: 20px;
+    color: var(--secondary-color);
+    text-decoration: none;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+    margin: 30px 15px 30px 0;
+    transition: 0.5s ease;
+}
+
+.home-sci a:hover {
+    background: var(--secondary-color);
+    color: var(--dark-color);
+    box-shadow: 0 0 20px var(--secondary-color);
+}
+
+.btn-box {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--secondary-color);
+    color: var(--dark-color);
+    border-radius: 40px;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-top: 30px; /* Added margin for spacing */
+    transition: 0.4s ease;
+    box-shadow: 0 0 15px var(--secondary-color);
+    opacity: 0; 
+    animation: slideTop 1s ease forwards;
+    animation-delay: 2s;
+    box-shadow: 0 0 5px var(--secondary-color), 
+                0 0 25px var(--secondary-color);
+}
+
+.btn-box:hover {
+    box-shadow: 0 0 5px var(--secondary-color), 
+                0 0 25px var(--secondary-color), 
+                0 0 50px var(--secondary-color),
+                0 0 100px var(--secondary-color),
+                0 0 200px var(--secondary-color);
+}
+
+/* About Section Styling */
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15rem;
+    padding: 100px 10%;
+    background: #081b29;
+    color: var(--text-color);
+}
+
+.about-img {
+    position: relative;
+    border-radius: 50%;
+    padding: 10px;
+    background: linear-gradient(135deg, var(--primary-color), var(--gradient-1), var(--gradient-2));
+    animation: glow 3s infinite alternate, float 4s ease-in-out infinite;
+    perspective: 1000px;
+}
+
+.about-img img {
+    border-radius: 50%;
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border: 4px solid var(--bg-gradient-start);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5),
+                0 0 30px var(--primary-color),
+                0 0 60px var(--gradient-1),
+                0 0 100px var(--gradient-2);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.about-img:hover img {
+    transform: rotateY(-10deg) rotateX(-5deg) scale(1.05);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.7),
+                0 0 40px var(--primary-color),
+                0 0 80px var(--gradient-1),
+                0 0 120px var(--gradient-2);
+}
+
+.about-text {
+    max-width: 600px;
+    
+}
+
+.about-text h2 {
+    font-size: 60px;
+    opacity: 0;
+    animation: slideBottom 1s ease forwards;
+    animation-delay: .7s;
+}
+
+.about-text h2 span {
+    color: var(--primary-color); /* Highlights the word "Me" */
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: .7s;
+}
+
+.about-text h4 {
+    font-size: 29px;
+    font-weight: 600;
+    color: #e82a9f;
+    line-height: 1.7;
+    margin: 15px 0 25px 0;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: 1s;
+}
+
+.about-text p {
+    color: aliceblue;
+    font-size: 18px;
+    line-height: 1.4;
+    margin-bottom: 4rem;
+    max-width: 600px; /* Prevents text line from being too long */
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: 1.2s;
+}
+.about-text .btn-box {
+    margin-top: 1rem; /* Adds space above the button */
+}
+
+
+/* =================== SKILLS SECTION STYLES =================== */
+.skills {
+    padding: 100px 8%;
+    background: var(--dark-color);
+}
+
+.skills .main-title {
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 7rem;
+    
+}
+
+.skills .main-title span {
+    color: var(--secondary-color);
+}
+
+.skills-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 9rem;
+}
+
+.technical-skills, .professional-skills {
+    flex: 1;
+    max-width: 550px;
+}
+
+/* MODIFIED SUB-HEADING STYLE */
+.skills .sub-title {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.skills .sub-title span {
+    border-bottom: 3px solid var(--secondary-color);
+    /* Adjust the left and right padding (5px) to make the underline shorter or longer */
+    padding: 0 5px 5px 5px; 
+}
+
+/* --- Technical Skills Styles --- */
+.technical-skills .skill-bar {
+    margin-bottom: 2.5rem;
+}
+
+.technical-skills .skill-bar .info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.technical-skills .skill-bar .info i {
+    font-size: 2rem;
+}
+
+.technical-skills .skill-bar .info p {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.technical-skills .bar {
+    width: 100%;
+    height: 8px;
+    background-color: #081b29;
+    border-radius: 10px;
+    position: relative;
+}
+
+.technical-skills .bar span {
+    display: block;
+    height: 100%;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    position: relative;
+}
+
+.bar span::after {
+    content: attr(data-percent);
+    position: absolute;
+    top: -28px;
+    right: 0;
+    transform: translateX(50%);
+    background: var(--dark-color);
+    color: var(--text-color);
+    padding: 2px 8px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+/* Skill bar widths */
+.bar .java { width: 90%; }
+.bar .sql { width: 80%; }
+.bar .html { width: 75%; }
+.bar .css { width: 70%; }
+.bar .javascript { width: 60%; }
+.bar .git { width: 65%; }
+
+/* --- Professional Skills Styles (CORRECTED) --- */
+.professional-skills .radial-bars-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+/* NEW: Wrapper for each skill item */
+.professional-skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* The circle container */
+.professional-skills .radial-bar {
+    position: relative;
+    width: 170px;
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.radial-bar svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(-90deg);
+    width: 170px;
+    height: 170px;
+}
+
+.radial-bar .progress-bar, .radial-bar .path {
+    stroke-width: 10;
+    fill: transparent;
+    stroke-dasharray: 440; /* Corrected circumference */
+    stroke-dashoffset: 440;
+    stroke-linecap: round;
+}
+
+.radial-bar .progress-bar {
+    stroke: var(--bg-gradient-start); /* Background track color */
+}
+
+.radial-bar .path {
+    stroke: var(--secondary-color);
+    animation: animate-path 1s 1s linear forwards;
+}
+
+/* Path offsets for each percentage */
+.radial-bar .path-1 { --path-offset: 44; }  /* 90% */
+.radial-bar .path-2 { --path-offset: 88; } /* 80% */
+.radial-bar .path-3 { --path-offset: 110; } /* 75% */
+.radial-bar .path-4 { --path-offset: 66; }  /* 85% */
+
+.radial-bar .percentage {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* NEW: Style for the text below the circle */
+.professional-skills .text {
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+@keyframes animate-path {
+    100% {
+        stroke-dashoffset: var(--path-offset);
+    }
+}
+
+/* Skills Section Styling ==============================*/
+
+
+/* Keyframes */
+@keyframes slideRight {
+    0% { transform: translateX(-100px); opacity: 0; }
+    100% { transform: translateX(0px); opacity: 1; }
+}
+
+@keyframes slideLeft {
+    0% { transform: translateX(100px); opacity: 0; }
+    100% { transform: translateX(0px); opacity: 1; }
+}
+
+@keyframes slideTop {
+    0% { transform: translateY(100px); opacity: 0; }
+    100% { transform: translateY(0px); opacity: 1; }
+}
+
+@keyframes slideBottom {
+    0% { transform: translateY(-100px); opacity: 0; }
+    100% { transform: translateY(0px); opacity: 1; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes animate-path {
+    100% {
+        stroke-dashoffset: var(--path-offset);
+    }
+}
+
+.project-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem; /* The space between your projects */
+}
+
+.project-item {
+    /* This tells each project how to grow and shrink */
+    flex: 1 1 360px;
+    /* This sets a max width to prevent items from getting too big on large screens */
+    max-width: 420px;
+    text-align: center; /* This will center the heading */
+}
+
+.project-item h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ededed; /* Or your text color variable */
+    margin-bottom: 1.2rem; /* Space between title and image */
+}
+
+/* The rest of your styles for .row, .layer, etc., remain the same */
+.row {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.row img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+    transition: opacity 0.5s;
+}
+
+.row:hover img {
+    opacity: 0;
+}
+
+.layer {
+    width: 100%;
+    height: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.1),  #0ef);
+    position: absolute;
+    border-radius: 8px;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 40px;
+    transition: height 0.5s;
+}
+.main-text{
+    padding-top: 80px;
+    margin-top: 0px;
+}
+.main-text h2{
+    font-size: 60px;
+    line-height: 1;
+    text-align: center;
+    gap: 10px;
+    margin-bottom: 100px;
+}
+.main-text h2 span{
+    color: #0ef;
+}
+.row:hover .layer {
+    height: 100%;
+}
+
+.layer p {
+    font-size: 1rem;
+    color: #000000;
+    font-weight: 600;
+    line-height: 1.8;
+}
+.layer h5{
+    font-size: 1.5rem;
+    color: #0ef;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.layer i {
+    color: #ff004f;
+    margin-top: 20px;
+    font-size: 20px;
+    background: #fff;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.contact {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 2rem;
+    padding-left: 50px;
+    padding-top: 200px;
+}
+.contact-text h2{
+    font-size: 60px;
+    line-height: 1;
+    text-align: center;
+    padding: 0 0 45px 0;
+}
+.contact-text h2 span{
+    color: #0ef;
+}
+.contact-text h4{
+    margin: 15px 0;
+    color: #e82a9f;
+    font-size: 35px;
+    font-weight: 700;
+}
+.contact-text p{
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 2rem;
+}
+.contact-list{
+    margin-bottom: 3rem;
+}
+.contact-list li{
+    display: block;
+    margin-bottom: 10px;
+}
+.contact-list li{
+    margin-bottom: 10px;
+    display: block;
+}
+.contact-list i{
+    color: #0ef;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 20px;
+    transition: all 0.40s ease;
+}
+.contact-list li  a:hover{
+    transform: scaleX(1.01) translateY(-5px);
+    color: #0ef;
+}
+.contact-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border-radius: 50%;
+    border: 2px solid var(--secondary-color);
+    font-size: 20px;
+    color: var(--secondary-color);
+    text-decoration: none;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+    margin: 30px 15px 30px 0;
+    transition: 0.5s ease;
+}
+
+.contact-icons a:hover {
+    background: var(--secondary-color);
+    color: var(--dark-color);
+    box-shadow: 0 0 20px var(--secondary-color);
+}
+.contact-form form{
+    position: relative;
+}
+.contact-form form input, form textarea{
+    border: none;
+    outline: none;
+    width: 90%;
+    padding: 18px;
+    background: #d3aee1;
+    color: #000;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    display: block; /* ✅ Add this */
+    margin-left: auto; /* ✅ Add this to center the fields */
+    margin-right: auto; /* ✅ Add this to center the fields */
+
+}
+.contact-form textarea{
+    resize: none;
+    height: 220px;
+
+}
+.contact-form form .send{
+   display: block; /* ✅ Make it a block element */
+    width: 90%; /* ✅ Match the width of the other inputs */
+    margin: 1.5rem auto 0 auto; /* ✅ Center it and adjust top margin */
+    padding: 14px 28px;
+    background: var(--secondary-color);
+    color: var(--dark-color);
+    border: none; /* ✅ Remove default button border */
+    border-radius: 40px;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: 0.4s ease;
+    box-shadow: 0 0 15px var(--secondary-color);
+    cursor: pointer; /* ✅ Add a pointer on hover */
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 2s;
+}
+.contact-form form .send:hover {
+    box-shadow: 0 0 5px #0ef,
+                0 0 25px #0ef,
+                0 0 50px #0ef,
+                0 0 100px #0ef,
+                0 0 200px #0ef;
+}
+
+.last-text p{
+    width: 100%;
+    text-align: center;
+    padding: 25px 0;
+    background: rgb(7, 85, 91);
+    font-weight: 300;
+    margin-top: 70px;
+
+}
+/* Your existing styles for the button */
+.top {
+    position: fixed;
+    bottom: 2.1rem;
+    right: 2.1rem;
+    
+    /* New styles for the transition */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px); /* Optional: for a slight slide-up effect */
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+}
+
+.top i {
+    color: #000;
+    background: #0ef;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 0.5rem;
+}
+
+/* This new class will be added by JavaScript to show the button */
+.top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.project-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px var(--shadow);
+}
+.project-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+.project-card h3 {
+    font-size: 1.5rem;
+    margin: 15px 0;
+    color: var(--text-color);
+}
+.project-card p {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+.project-card a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--secondary-color);
+    color: var(--dark-color);
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+.project-card a:hover {
+    background: var(--primary-color);
+    transform: translateY(-2px);
+}
+.menu-toggle {
+  display: none; /* hidden on desktop */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: var(--text-color);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Hamburger Menu Styles ===================================================================*/
+/* ================================================== */
+/* ✅ ALL MOBILE STYLES (Consolidated) */
+/* ================================================== */
+@media (max-width: 768px) {
+    
+    /* --- Hamburger Menu & Navbar --- */
+    .menu-toggle {
+        display: flex; /* Show hamburger icon */
+    }
+
+    .navbar {
+        flex-direction: column;
+        position: absolute;
+        top: 78px;
+        right: 3.2%; /* Adjusted from 50px to use percentage */
+        width: auto; /* Give it a width */
+        height: auto;
+        min-height: 150px; /* And a max-width */
+        background: #1e293b;
+        border-radius: 8px;
+        overflow: hidden;
+        max-height: 0; /* Hidden by default */
+        opacity: 0;
+        transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.3s ease;
+    }
+
+    .navbar.active {
+        display: flex;
+        max-height: 500px;
+        opacity: 1;
+        flex-direction: column;
+        align-items: flex-start; /* ✅ align links neatly */
+        padding: 0 12px;
+    }
+
+    .navbar a {
+        margin: 5px 0;
+        padding: 10px 0;
+        color: #fff;
+        text-decoration:none;
+        font-weight: 500;
+        display: block;
+        width: 100%;   /* ✅ full width clickable */
+    }
+
+    /* --- Home Section --- */
+    .home {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+        padding-top: 100px;  /* More space from the top header */
+        padding-bottom: 50px; /* Add space at the bottom */
+    }
+
+    .home-content {
+        order: 2; /* Text appears AFTER the image */
+    }
+
+    .home-image {
+        order: 1; /* Image appears BEFORE the text */
+        width: 70vw;
+        height: 70vw;
+    }
+
+    /* --- About Section --- */
+    .about {
+        flex-direction: column;
+        text-align: center;
+        gap: 4rem;
+        padding: 50px 10%; /* Adjust padding for mobile */
+    }
+
+    .about-img {
+        display: none; /* Hide about image on mobile */
+    }
+ 
+    /* Ensures visible images fill their containers */
+    .home-image img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    /* --- Skills Section --- */
+    .skills-wrapper {
+        flex-direction: column;
+        align-items: center; /* Center the columns */
+        gap: 5rem;
+    }
+    
+    /* --- Contact Section --- */
+    .contact {
+        grid-template-columns: 1fr; /* Use a single column */
+        padding: 100px 10%; /* Adjust padding for mobile */
+    }
+}
+
+/* Animate hamburger to X (keep this outside the media query) */
+.menu-toggle.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
