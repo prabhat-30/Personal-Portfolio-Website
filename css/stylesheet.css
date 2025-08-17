@@ -867,9 +867,11 @@ body {
         max-height: 0; /* Hidden by default */
         opacity: 0;
         transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.3s ease;
+        pointer-events: none;
     }
 
     .navbar.active {
+        pointer-events: auto;
         display: flex;
         max-height: 500px;
         opacity: 1;
@@ -893,7 +895,7 @@ body {
         flex-direction: column;
         text-align: center;
         gap: 3rem;
-        padding-top: 100px;  /* More space from the top header */
+        padding-top: 80px;  /* More space from the top header */
         padding-bottom: 50px; /* Add space at the bottom */
     }
 
