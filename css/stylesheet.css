@@ -899,7 +899,11 @@ body {
         flex-direction: column;
         text-align: center;
         gap: 2.7rem;
+<<<<<<< HEAD
         padding-top: 110px;  /* More space from the top header */
+=======
+        padding-top: 100px;  /* More space from the top header */
+>>>>>>> c4e376337530f0697c4e788f9d4c899da3085315
         padding-bottom: 50px; /* Add space at the bottom */
     }
 
