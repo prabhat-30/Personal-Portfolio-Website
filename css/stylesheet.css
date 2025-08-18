@@ -517,6 +517,8 @@ body {
     }
 }
 
+/*  project==========================================================*/
+
 .project-content {
     display: flex;
     flex-wrap: wrap;
@@ -543,7 +545,7 @@ body {
 .row {
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 40px;
     cursor: pointer;
 }
 
@@ -563,7 +565,7 @@ body {
     height: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.1),  #0ef);
     position: absolute;
-    border-radius: 8px;
+    border-radius: 40px;
     left: 0;
     bottom: 0;
     overflow: hidden;
@@ -572,9 +574,11 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0 40px;
+    padding: 0 30px;
     transition: height 0.5s;
+    z-index: 2;
 }
+
 .main-text{
     padding-top: 80px;
     margin-top: 0px;
@@ -618,7 +622,7 @@ body {
     align-items: center;
     border-radius: 50%;
 }
-
+/*  contact==========================================================*/
 .contact {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -700,7 +704,7 @@ body {
 .contact-form form input, form textarea{
     border: none;
     outline: none;
-    width: 90%;
+    width: 80%;
     padding: 18px;
     background: #d3aee1;
     color: #000;
@@ -720,7 +724,7 @@ body {
 }
 .contact-form form .send{
    display: block; /* ✅ Make it a block element */
-    width: 90%; /* ✅ Match the width of the other inputs */
+    width: 80%; /* ✅ Match the width of the other inputs */
     margin: 1.5rem auto 0 auto; /* ✅ Center it and adjust top margin */
     padding: 14px 28px;
     background: var(--secondary-color);
@@ -798,7 +802,7 @@ body {
 .project-card img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 .project-card h3 {
     font-size: 1.5rem;
@@ -808,7 +812,7 @@ body {
 .project-card p {
     font-size: 1rem;
     color: var(--text-color);
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 .project-card a {
     display: inline-block;
@@ -867,9 +871,11 @@ body {
         max-height: 0; /* Hidden by default */
         opacity: 0;
         transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.3s ease;
+        pointer-events: none;
     }
 
     .navbar.active {
+        pointer-events: auto;
         display: flex;
         max-height: 500px;
         opacity: 1;
@@ -892,8 +898,8 @@ body {
     .home {
         flex-direction: column;
         text-align: center;
-        gap: 3rem;
-        padding-top: 100px;  /* More space from the top header */
+        gap: 2.7rem;
+        padding-top: 110px;  /* More space from the top header */
         padding-bottom: 50px; /* Add space at the bottom */
     }
 
